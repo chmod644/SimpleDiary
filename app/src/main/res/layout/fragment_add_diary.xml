@@ -10,8 +10,8 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="329dp"
+        android:layout_height="395dp"
         android:ems="10"
         android:inputType="textMultiLine"
         tools:layout_constraintTop_creator="1"
@@ -28,8 +28,8 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="32dp"
         android:layout_marginRight="32dp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.5" />
 
     <Button
         android:id="@+id/button"
@@ -43,9 +43,8 @@
         android:layout_marginEnd="29dp"
         app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginRight="32dp" />
 </android.support.constraint.ConstraintLayout>
