@@ -9,28 +9,41 @@
     tools:layout_editor_absoluteX="0dp">
 
     <EditText
+        android:id="@+id/editDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="date"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="26dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="26dp"
+        android:focusable="false"
+        android:clickable="true" />
+
+    <EditText
         android:id="@+id/editText"
-        android:layout_width="329dp"
-        android:layout_height="395dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:ems="10"
         android:inputType="textMultiLine"
+        android:layout_marginStart="26dp"
+        android:layout_marginEnd="26dp"
+        android:gravity="top|left"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        android:layout_marginStart="27dp"
-        android:layout_marginEnd="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="84dp"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="84dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        app:layout_constraintVertical_bias="0.0"
-        app:layout_constraintHorizontal_bias="0.5"
-        android:gravity="top|left" />
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp" />
 
     <Button
         android:id="@+id/button"
@@ -46,6 +59,7 @@
         tools:layout_constraintLeft_creator="1"
         android:layout_marginBottom="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp" />
+        android:layout_marginLeft="29dp"
+        android:layout_marginRight="29dp" />
+
 </android.support.constraint.ConstraintLayout>

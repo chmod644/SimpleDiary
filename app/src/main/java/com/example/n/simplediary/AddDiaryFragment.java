@@ -1,12 +1,21 @@
 package com.example.n.simplediary;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 
 /**
@@ -28,6 +37,10 @@ public class AddDiaryFragment extends Fragment {
     // private String mParam2;
 
     // private OnFragmentInteractionListener mListener;
+
+    private int _year;
+    private int _month;
+    private int _date;
 
     public AddDiaryFragment() {
         // Required empty public constructor
@@ -54,17 +67,61 @@ public class AddDiaryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // if (getArguments() != null) {
-        //     mParam1 = getArguments().getString(ARG_PARAM1);
-        //     mParam2 = getArguments().getString(ARG_PARAM2);
-        // }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_diary, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_diary, container, false);
+
+        final EditText dateText = (EditText) view.findViewById(R.id.editDate);
+
+        // Set date
+        Calendar cal = Calendar.getInstance();
+        _year = cal.get(Calendar.YEAR);
+        _month = cal.get(Calendar.MONTH);
+        _date = cal.get(Calendar.DATE);
+
+        String dateStr = _year + "/" + (_month+1) + "/" + _date;
+        dateText.setText(dateStr);
+
+        dateText.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onClick(View view) {
+
+                final int year = _year;
+                final int month = _month;
+                final int date = _date;
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int y, int m, int d) {
+                        _year = y;
+                        _month = m;
+                        _date = d;
+                        String date = y + "/" + (m+1) + "/" + d;
+                        dateText.setText(date);
+                    }
+                }, year, month, date);
+
+                datePickerDialog.show();
+            }
+        });
+
+        DiaryOpenHelper helper = new DiaryOpenHelper(getContext());
+        Button saveButton = (Button) view.findViewById(R.id.button);
+        saveButton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast toast = Toast.makeText(getActivity(), "Buttonにリスナ登録できているかテスト!", Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                }
+        );
+        return view;
     }
 
     // // TODO: Rename method, update argument and hook method into UI event
