@@ -58,12 +58,13 @@ public class DiaryListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View frame_view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View list_view = frame_view.findViewById(R.id.list);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+        if (list_view instanceof RecyclerView) {
+            Context context = list_view.getContext();
+            RecyclerView recyclerView = (RecyclerView) list_view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
@@ -71,7 +72,8 @@ public class DiaryListFragment extends Fragment {
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
-        return view;
+
+        return frame_view;
     }
 
     /**
