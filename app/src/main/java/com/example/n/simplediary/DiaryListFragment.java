@@ -12,10 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.n.simplediary.dummy.DummyContent;
-import com.example.n.simplediary.dummy.DummyContent.DummyItem;
-
-import java.util.List;
+import com.example.n.simplediary.dummy.DiaryContent;
+import com.example.n.simplediary.dummy.DiaryContent.DiaryItem;
 
 /**
  * A fragment representing a list of Items.
@@ -73,7 +71,7 @@ public class DiaryListFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new DiaryItemRecyclerViewAdapter(DiaryContent.ITEMS, mListener));
         }
 
         FloatingActionButton fab = (FloatingActionButton) frame_view.findViewById(R.id.fab);
@@ -100,6 +98,6 @@ public class DiaryListFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(DiaryItem item);
     }
 }
