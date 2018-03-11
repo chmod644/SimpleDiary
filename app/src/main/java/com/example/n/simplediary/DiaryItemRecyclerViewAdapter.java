@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.n.simplediary.DiaryListFragment.OnListFragmentInteractionListener;
-import com.example.n.simplediary.dummy.DiaryContent.DiaryItem;
+import com.example.n.simplediary.Diary.DiaryContent.DiaryItem;
 
 import java.util.List;
 
@@ -36,8 +36,8 @@ public class DiaryItemRecyclerViewAdapter extends RecyclerView.Adapter<DiaryItem
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(holder.mItem.getStringDate());
+        holder.mContentView.setText(holder.mItem.content);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

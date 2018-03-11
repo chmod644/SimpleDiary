@@ -1,6 +1,9 @@
-package com.example.n.simplediary.dummy;
+package com.example.n.simplediary.Diary;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,11 +37,11 @@ public class DiaryContent {
 
     private static void addItem(DiaryItem item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(String.valueOf(item.id), item);
     }
 
     private static DiaryItem createDummyItem(int position) {
-        return new DiaryItem(String.valueOf(position), "Item " + position, makeDetails(position));
+        return new DiaryItem(position, 1980, 1, 1, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
@@ -54,15 +57,27 @@ public class DiaryContent {
      * A dummy item representing a piece of content.
      */
     public static class DiaryItem {
-        public final String id;
+        public final int id;
+        public final int year;
+        public final int month;
+        public final int day;
         public final String content;
-        public final String details;
 
-        public DiaryItem(String id, String content, String details) {
+        public DiaryItem(int id, int year, int month, int day, String content) {
             this.id = id;
+            this.year = year;
+            this.month = month;
+            this.day = day;
             this.content = content;
-            this.details = details;
         }
+
+        public String getStringId(){ return String.valueOf(this.id); }
+
+        public String getStringDate(){
+            Calendar calendar = new GregorianCalendar(this.year, this.month, this.day);
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
+            return dateFormat.format(calendar.getTime());
+            }
 
         @Override
         public String toString() {
