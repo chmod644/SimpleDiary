@@ -57,13 +57,15 @@ public class DiaryContent {
      * A dummy item representing a piece of content.
      */
     public static class DiaryItem {
-        public final int id;
-        public final int year;
-        public final int month;
-        public final int day;
-        public final String content;
+        public long id;
+        public int year;
+        public int month;
+        public int day;
+        public String content;
 
-        public DiaryItem(int id, int year, int month, int day, String content) {
+        public DiaryItem() { };
+
+        public DiaryItem(long id, int year, int month, int day, String content) {
             this.id = id;
             this.year = year;
             this.month = month;
