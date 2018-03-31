@@ -65,7 +65,7 @@ public class DiaryItemRecyclerViewAdapter extends RecyclerView.Adapter<DiaryItem
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.id);
+            mIdView = (TextView) view.findViewById(R.id.date);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
